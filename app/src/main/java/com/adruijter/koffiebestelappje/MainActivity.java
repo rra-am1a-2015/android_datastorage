@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.SeekBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +15,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    private String milkYesOrNo(CheckBox chkbxMilk)
+    {
+        if ( chkbxMilk.isChecked())
+        {
+            return "wel";
+        }
+        else
+        {
+            return "geen";
+        }
+    }
+
+    private String sugarYesOrNo(CheckBox chkbxSugar)
+    {
+        if ( chkbxSugar.isChecked())
+        {
+            return "wel";
+        }
+        else
+        {
+            return "geen";
+        }
+    }
 
     public void bestelKoffie(View view)
     {
@@ -23,9 +47,23 @@ public class MainActivity extends AppCompatActivity {
         EditText txtNumberOfCoffee = (EditText) findViewById(R.id.numberOfCoffee);
         EditText txtDebugText = (EditText) findViewById(R.id.debugTekst);
         CheckBox chkbxMilk = (CheckBox) findViewById(R.id.milk);
-        txtDebugText.setText("Voornaam: " + txtFirstname.getText() + "\n" +
-                "Tussenvoegsel: " + txtInfix.getText() + "\n" +
-                "Achternaam: " + txtLastname.getText() + "\n" +
-                "Aantal kopjes koffie: " + txtNumberOfCoffee.getText());
+        CheckBox chkbxSugar = (CheckBox) findViewById(R.id.sugar);
+        SeekBar skbar = (SeekBar) findViewById(R.id.seek_bar);
+
+        String output = String.format("Voornaam: %s \n" +
+                                      "Tussenvoegsel: %s \n" +
+                                      "Achternaam: %s \n" +
+                                      "Aantal kopjes koffie: %s \n" +
+                                      "Wel of geen melk: %s \n" +
+                                      "Wel of geen suiker: %s \n" +
+                                      "Koffie sterkte %s",
+                                      txtFirstname.getText(),
+                                      txtInfix.getText(),
+                                      txtLastname.getText(),
+                                      txtNumberOfCoffee.getText(),
+                                      this.milkYesOrNo(chkbxMilk),
+                                      this.sugarYesOrNo(chkbxSugar),
+                                      skbar.getProgress());
+        txtDebugText.setText(output);
     }
 }
