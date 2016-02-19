@@ -166,7 +166,10 @@
 
         <CalendarView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"></CalendarView>
+            android:layout_height="match_parent"
+            android:id="@+id/calendar">
+
+        </CalendarView>
 
         <EditText
             android:layout_width="match_parent"
@@ -175,7 +178,7 @@
             android:ems="10"
             android:id="@+id/debugTekst"
             android:layout_gravity="right"
-            android:text="Dit is een hele lange tekst. Dit is een hele lange tekst. Dit is een hele lange tekst."/>
+            android:text="Informatieve Tekst"/>
 
         <Button
             android:layout_width="wrap_content"
