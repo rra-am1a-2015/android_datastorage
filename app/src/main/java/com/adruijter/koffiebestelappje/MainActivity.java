@@ -1,5 +1,6 @@
 package com.adruijter.koffiebestelappje;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar  skbar;
     Date     date;
     String   test = "";
+    String   output = "";
 
 
 
@@ -103,7 +108,10 @@ public class MainActivity extends AppCompatActivity {
                 this.skbar.getProgress(),
                 //this.readableDate(this.cld));
                 this.test);
+        this.output = output;
         txtDebugText.setText(output);
         Toast.makeText(getApplicationContext(), "Hallo dan!", Toast.LENGTH_SHORT).show();
+
     }
+
 }
