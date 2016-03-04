@@ -1,6 +1,7 @@
 package com.adruijter.koffiebestelappje;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
              chkbxSugar;
     SeekBar  skbar;
     Date     date;
-    String   test = "";
-    String   output = "";
+    String   test = "",
+             saveText = "";
 
 
 
@@ -108,10 +110,41 @@ public class MainActivity extends AppCompatActivity {
                 this.skbar.getProgress(),
                 //this.readableDate(this.cld));
                 this.test);
-        this.output = output;
+        this.saveText = output;
         txtDebugText.setText(output);
-        Toast.makeText(getApplicationContext(), "Hallo dan!", Toast.LENGTH_SHORT).show();
+        saveOrder(view);
 
+
+    }
+
+    public void saveOrder(View view)
+    {
+        // Deze method is verantwoordelijk voor het opslaan in het interne geheugen van onze tekst.
+        FileOutputStream fos;
+        File file = null;
+        try
+        {
+            file = getFilesDir();
+            fos = openFileOutput("bestelling.txt", Context.MODE_PRIVATE);
+            fos.write(this.saveText.getBytes());
+            fos.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            e.getMessage();
+        }
+        catch(IOException e)
+        {
+            e.getMessage();
+        }
+
+        Toast.makeText(getApplicationContext(), "De bestelling is opgenomen! in de map: " + file.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    public void showOrder(View view)
+    {
+        Intent intent = new Intent(this, LoadActivity.class);
+        startActivity(intent);
     }
 
 }
