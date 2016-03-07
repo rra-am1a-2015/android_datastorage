@@ -1,25 +1,22 @@
 package com.adruijter.koffiebestelappje;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-/**
- * Created by Arjan de Ruijter on 4-3-2016.
- */
-public class LoadActivity extends AppCompatActivity {
+public class LoadActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_load);
     }
+
 
     public void newOrder(View view)
     {
-
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
-
-
-
 }

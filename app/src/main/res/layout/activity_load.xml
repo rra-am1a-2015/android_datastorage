@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hierkomt de bestelling uit het interne geheugen"
+            android:text="Hier komt de bestelling uit het tekstbestand"
             android:textAppearance="?android:textAppearanceLarge"
             android:textSize="16sp" />
 
@@ -28,13 +28,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="bestellingen zien"
+                android:text="bestelling"
                 android:id="@+id/showOrders"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="20dp"
                 android:onClick="showOrders"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="invoer bestelling"
+                android:text="terug"
                 android:id="@+id/newOrder"
                 android:onClick="newOrder"/>
         </LinearLayout>

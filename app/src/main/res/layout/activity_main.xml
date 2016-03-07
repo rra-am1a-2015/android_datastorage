@@ -188,14 +188,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bestel Koffie"
-                    android:id="@+id/button"
+                    android:id="@+id/btn_bestel"
                     android:onClick="bestelKoffie"/>
 
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Laat bestelling zien"
-                    android:id="@+id/button"
+                    android:id="@+id/btn_showOrder"
                     android:onClick="showOrder"/>
             </LinearLayout>
 
