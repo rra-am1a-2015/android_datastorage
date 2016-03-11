@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:text="Hier komt de bestelling uit het tekstbestand"
             android:textAppearance="?android:textAppearanceLarge"
+            android:id="@+id/internMemText"
             android:textSize="16sp" />
 
         <LinearLayout
