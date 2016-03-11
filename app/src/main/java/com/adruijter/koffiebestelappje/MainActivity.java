@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     SeekBar  skbar;
     Date     date;
     String   test = "",
-             saveText = "";
+             saveText = "",
+             saveTextData = "";
 
 
 
@@ -110,8 +111,20 @@ public class MainActivity extends AppCompatActivity {
                 this.skbar.getProgress(),
                 //this.readableDate(this.cld));
                 this.test);
+
+        String outputTxt = String.format("%s %s %s %s %s %s %s %s" + System.lineSeparator(),
+                this.txtFirstname.getText(),
+                this.txtInfix.getText(),
+                this.txtLastname.getText(),
+                this.txtNumberOfCoffee.getText(),
+                this.milkYesOrNo(chkbxMilk),
+                this.sugarYesOrNo(chkbxSugar),
+                this.skbar.getProgress(),
+                //this.readableDate(this.cld));
+                this.test);
         this.saveText = output;
-        txtDebugText.setText(output);
+        this.saveTextData = outputTxt;
+        this.txtDebugText.setText(output);
         saveOrder(view);
 
 
@@ -125,8 +138,8 @@ public class MainActivity extends AppCompatActivity {
         try
         {
             file = getFilesDir();
-            fos = openFileOutput("bestelling.txt", Context.MODE_PRIVATE);
-            fos.write(this.saveText.getBytes());
+            fos = openFileOutput("bestelling.txt", Context.MODE_PRIVATE | MODE_APPEND);
+            fos.write(this.saveTextData.getBytes());
             fos.close();
         }
         catch (FileNotFoundException e)

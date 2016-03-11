@@ -48,6 +48,8 @@ public class LoadActivity extends Activity {
             String output = buffer.substring(0, buffer.length());
 
             Toast.makeText(getBaseContext(), output, Toast.LENGTH_LONG).show();
+            this.dataTxt.setText(output);
+
         }
         catch(FileNotFoundException e)
         {
