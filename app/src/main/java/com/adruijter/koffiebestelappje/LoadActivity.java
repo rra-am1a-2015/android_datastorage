@@ -42,7 +42,8 @@ public class LoadActivity extends Activity {
 
             while((read = fis.read()) != -1)
             {
-                buffer.append((char)read);
+                buffer.append((char) read);
+                Toast.makeText(getApplicationContext(),buffer.substring(0, buffer.length()) +  Integer.toString(buffer.lastIndexOf(" ")), Toast.LENGTH_SHORT).show();
             }
 
             String output = buffer.substring(0, buffer.length());
