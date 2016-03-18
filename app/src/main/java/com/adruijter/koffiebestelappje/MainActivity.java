@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 //this.readableDate(this.cld));
                 this.test);
 
-        String outputTxt = String.format("%s %s %s %s %s %s %s %s" + System.lineSeparator(),
+        String outputTxt = String.format("%s %s %s %s %s %s %s %s",
                 this.txtFirstname.getText(),
                 this.txtInfix.getText(),
                 this.txtLastname.getText(),
@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
                 this.skbar.getProgress(),
                 //this.readableDate(this.cld));
                 this.test);
-        this.saveText = output;
-        this.saveTextData = outputTxt;
+        this.saveText = output ;
+        this.saveTextData = outputTxt + System.getProperty("line.separator");
         this.txtDebugText.setText(output);
         saveOrder(view);
 

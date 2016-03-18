@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class LoadActivity extends Activity {
@@ -35,13 +36,12 @@ public class LoadActivity extends Activity {
     public void showOrders(View view)
     {
 
-        Toast.makeText(getBaseContext(),"Hallo de knop werkt", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getBaseContext(),"Hallo de knop werkt", Toast.LENGTH_LONG).show();
 
         FileInputStream fis;
         int read;
         StringBuffer buffer = new StringBuffer();
-        List<String> test = new ArrayList<String>();
-        test.add("default");
+        ArrayList<String> test = new ArrayList<String>();
         int index = 0;
         int teller = 0;
         try {
@@ -51,22 +51,31 @@ public class LoadActivity extends Activity {
             {
                 buffer.append((char) read);
 
+                /*
                 if (buffer.lastIndexOf(" ") != -1)
                 {
                     test.add(buffer.substring(index, buffer.length()));
 
-                    index = buffer.lastIndexOf("");
+                    index = buffer.lastIndexOf(" ");
 
-                    Log.v("test", test.get(teller));
+
                     teller++;
                 }
+                */
 
-                Toast.makeText(getApplicationContext(), buffer.substring(0, buffer.length()) +  Integer.toString(buffer.lastIndexOf(" ")) + test.get(0), Toast.LENGTH_SHORT).show();
+
+                //Toast.makeText(getApplicationContext(), buffer.substring(0, buffer.length()) +  Integer.toString(buffer.lastIndexOf(" ")) + test.get(0), Toast.LENGTH_SHORT).show();
             }
 
             String output = buffer.substring(0, buffer.length());
+           // test.addAll(Arrays.asList(output.split(" ")));
 
-            Toast.makeText(getBaseContext(), output, Toast.LENGTH_LONG).show();
+
+
+
+            //Toast.makeText(getBaseContext(), output, Toast.LENGTH_LONG).show();
+            Log.v("test", );
+
             this.dataTxt.setText(output);
 
         }
