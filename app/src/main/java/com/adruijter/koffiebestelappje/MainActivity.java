@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 test = dayOfMonth + "/" + (month + 1) + "/" + year;
                 Toast.makeText(getApplicationContext(), test, Toast.LENGTH_SHORT).show();
-                bestelKoffie(view);
+                //bestelKoffie(view);
             }
         });
     }
