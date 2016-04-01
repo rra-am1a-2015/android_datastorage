@@ -21,7 +21,7 @@ import java.util.List;
 public class LoadActivity extends Activity {
     //Fields
     TextView dataTxt;
-    private static final int NUM_ROWS = 4;
+    private static final int NUM_ROWS = 2;
     private static final int NUM_COLS = 9;
 
     @Override
@@ -43,33 +43,6 @@ public class LoadActivity extends Activity {
 
         TableLayout table = (TableLayout) findViewById(R.id.tableInternalMemory);
 
-        for ( int row = 0; row < NUM_ROWS; row++)
-        {
-            TableRow tableRow = new TableRow(this);
-            tableRow.setLayoutParams(new TableLayout.LayoutParams(
-                    TableLayout.LayoutParams.MATCH_PARENT,
-                    TableLayout.LayoutParams.MATCH_PARENT,
-                    1.0f
-            ));
-            table.addView(tableRow);
-
-            for ( int col = 0; col < NUM_COLS; col++)
-            {
-                Button button = new Button(this);
-                button.setText("" + row + ", " + col);
-                button.setPadding(0, 0 , 0, 0);
-                button.setTextSize(9);
-                button.setLayoutParams(new TableRow.LayoutParams(
-                        TableRow.LayoutParams.MATCH_PARENT,
-                        TableRow.LayoutParams.MATCH_PARENT,
-                        1.0f
-                ));
-                tableRow.addView(button);
-            }
-        }
-
-
-
         FileInputStream fis;
         int read;
 
@@ -81,7 +54,7 @@ public class LoadActivity extends Activity {
 
         try {
 
-            String[] sentences;
+            String[] sentences, words;
             fis = openFileInput("bestelling.txt");
             StringBuffer buffer = new StringBuffer();
 
@@ -92,6 +65,33 @@ public class LoadActivity extends Activity {
             String output = buffer.substring(0, buffer.length());
 
             sentences = output.split(System.getProperty("line.separator"));
+
+            for ( int row = 0; row < sentences.length; row++)
+            {
+                words = sentences[row].split(" ");
+                TableRow tableRow = new TableRow(this);
+                tableRow.setLayoutParams(new TableLayout.LayoutParams(
+                        TableLayout.LayoutParams.MATCH_PARENT,
+                        TableLayout.LayoutParams.MATCH_PARENT,
+                        1.0f
+                ));
+                table.addView(tableRow);
+
+                for ( int col = 0; col < words.length; col++)
+                {
+                    Button button = new Button(this);
+                    String text = words[col];
+                    button.setText(text);
+                    button.setPadding(0, 0 , 0, 0);
+                    button.setTextSize(9);
+                    button.setLayoutParams(new TableRow.LayoutParams(
+                            TableRow.LayoutParams.MATCH_PARENT,
+                            TableRow.LayoutParams.MATCH_PARENT,
+                            1.0f
+                    ));
+                    tableRow.addView(button);
+                }
+            }
 
             Log.v("test123", sentences[1] );
 
