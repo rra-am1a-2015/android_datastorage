@@ -2,9 +2,11 @@ package com.adruijter.koffiebestelappje;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -76,21 +78,30 @@ public class LoadActivity extends Activity {
                         1.0f
                 ));
                 table.addView(tableRow);
-
                 for ( int col = 0; col < words.length; col++)
                 {
-                    Button button = new Button(this);
+                    //Button button = new Button(this);
+                    TextView colView = new TextView(this);
                     String text = words[col];
-                    button.setText(text);
-                    button.setPadding(0, 0 , 0, 0);
-                    button.setTextSize(9);
-                    button.setLayoutParams(new TableRow.LayoutParams(
-                            TableRow.LayoutParams.MATCH_PARENT,
-                            TableRow.LayoutParams.MATCH_PARENT,
-                            1.0f
-                    ));
-                    tableRow.addView(button);
+                    colView.setText(text);
+                    colView.setPadding(0, 0, 0, 0);
+                    TableRow.LayoutParams lp = (TableRow.LayoutParams) colView.getLayoutParams();
+                    lp.setMargins(20, 20, 20, 20);
+                    colView.setLayoutParams(lp);
+                    //colView.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
+                    colView.setTextSize(9);
+                    colView.setBackgroundColor(Color.rgb(255, 127, 0));
+                    //colView.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
+                        //    TableRow.LayoutParams.MATCH_PARENT,
+                        //    1.0f
+                   // ));
+                    tableRow.addView(colView);
                 }
+                Button button = new Button(this);
+                button.setWidth(4);
+                button.setHeight(4);
+
+                tableRow.addView(button);
             }
 
             Log.v("test123", sentences[1] );
