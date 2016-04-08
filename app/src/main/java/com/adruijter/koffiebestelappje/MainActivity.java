@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         this.txtInfix =  (EditText) findViewById(R.id.infix);
         this.txtLastname = (EditText) findViewById(R.id.lastname);
         this.txtNumberOfCoffee = (EditText) findViewById(R.id.numberOfCoffee);
-        this.txtDebugText = (EditText) findViewById(R.id.debugTekst);
+        //this.txtDebugText = (EditText) findViewById(R.id.debugTekst);
         this.chkbxMilk = (CheckBox) findViewById(R.id.milk);
         this.chkbxSugar = (CheckBox) findViewById(R.id.sugar);
         this.skbar = (SeekBar) findViewById(R.id.seek_bar);
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                 this.test);
         this.saveText = output ;
         this.saveTextData = outputTxt + System.getProperty("line.separator");
-        this.txtDebugText.setText(output);
+        //this.txtDebugText.setText(output);
         saveOrder(view);
 
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
             e.getMessage();
         }
 
-        Toast.makeText(getApplicationContext(), "De bestelling is opgenomen! in de map: " + file.toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "De bestelling is opgenomen! in de map: " + file.toString(), Toast.LENGTH_LONG).show();
     }
 
     public void showOrder(View view)

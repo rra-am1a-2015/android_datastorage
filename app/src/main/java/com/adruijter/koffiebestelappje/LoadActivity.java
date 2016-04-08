@@ -30,7 +30,8 @@ public class LoadActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load);
-        this.dataTxt = (TextView)findViewById(R.id.internMemText);
+        showOrders();
+        //this.dataTxt = (TextView)findViewById(R.id.internMemText);
     }
 
 
@@ -40,7 +41,7 @@ public class LoadActivity extends Activity {
         startActivity(intent);
     }
 
-    public void showOrders(View view)
+    public void showOrders()
     {
 
         TableLayout table = (TableLayout) findViewById(R.id.tableInternalMemory);
@@ -72,12 +73,28 @@ public class LoadActivity extends Activity {
             {
                 words = sentences[row].split(" ");
                 TableRow tableRow = new TableRow(this);
+
+
+                TableLayout.LayoutParams tableRowParams = new TableLayout.LayoutParams(TableLayout.LayoutParams.WRAP_CONTENT, TableLayout.LayoutParams.WRAP_CONTENT);
+
+
+                tableRowParams.setMargins(10, 10, 10,10);
+
+                tableRow.setLayoutParams(tableRowParams);
+
+
+
+
+
+
+
                 tableRow.setLayoutParams(new TableLayout.LayoutParams(
                         TableLayout.LayoutParams.MATCH_PARENT,
                         TableLayout.LayoutParams.MATCH_PARENT,
                         1.0f
                 ));
                 table.addView(tableRow);
+
                 for ( int col = 0; col < words.length; col++)
                 {
                     //Button button = new Button(this);
@@ -85,28 +102,29 @@ public class LoadActivity extends Activity {
                     String text = words[col];
                     colView.setText(text);
                     colView.setPadding(0, 0, 0, 0);
-                    TableRow.LayoutParams lp = (TableRow.LayoutParams) colView.getLayoutParams();
-                    lp.setMargins(20, 20, 20, 20);
-                    colView.setLayoutParams(lp);
-                    //colView.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT));
-                    colView.setTextSize(9);
-                    colView.setBackgroundColor(Color.rgb(255, 127, 0));
-                    //colView.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
-                        //    TableRow.LayoutParams.MATCH_PARENT,
-                        //    1.0f
-                   // ));
+                    colView.setTextSize(11);
+                    colView.setBackgroundColor(Color.rgb(200, 200, 200));
+
+
+
+                    colView.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
+                           TableRow.LayoutParams.MATCH_PARENT,
+                           1.0f
+                    ));
                     tableRow.addView(colView);
                 }
                 Button button = new Button(this);
-                button.setWidth(4);
-                button.setHeight(4);
-
+                button.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,
+                        TableRow.LayoutParams.MATCH_PARENT,
+                        1.0f
+                ));
+                button.setText("Wijzig");
                 tableRow.addView(button);
             }
 
-            Log.v("test123", sentences[1] );
+            Log.v("test123", sentences[1]);
 
-            this.dataTxt.setText(output);
+            //this.dataTxt.setText(output);
 
 
 
