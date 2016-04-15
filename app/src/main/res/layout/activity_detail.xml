@@ -10,55 +10,111 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:background="#F90"
+        android:padding="20dp"
         android:text="Detail overzicht record"
         android:textAlignment="center"
         android:textSize="24dp"
-        android:layout_marginBottom="20dp"
-        android:padding="20dp"
         />
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F90"
-        android:text=""
-        android:textSize="16dp"
-        android:layout_marginBottom="20dp"
-        android:padding="20dp"
-        android:id="@+id/voornaam"
-        />
+        android:orientation="horizontal" >
+        <TextView
+            android:id="@+id/voornaamLabel"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#F90"
+            android:padding="20dp"
+            android:text="Voornaam: "
+            android:textSize="16dp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F90"
-        android:text=""
-        android:textSize="16dp"
-        android:layout_marginBottom="20dp"
-        android:padding="20dp"
-        android:id="@+id/tussenvoegsel"
-        />
+        <EditText
+            android:id="@+id/voornaam"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#DDD"
+            android:padding="20dp"
+            android:text=""
+            android:textSize="16dp"
+            />
+    </LinearLayout>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F90"
-        android:text=""
-        android:textSize="16dp"
-        android:layout_marginBottom="20dp"
-        android:padding="20dp"
+        android:orientation="horizontal" >
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="#F90"
+            android:padding="20dp"
+            android:text="Tussenvoegsel: "
+            android:textSize="16dp"
+            />
+
+        <EditText
+            android:id="@+id/tussenvoegsel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="#DDD"
+            android:padding="20dp"
+            android:text=""
+            android:textSize="16dp"
+            />
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:background="#F90"
+                android:padding="20dp"
+                android:text="Achternaam: "
+                android:textSize="16dp" />
+    <EditText
         android:id="@+id/achternaam"
-        />
-
-    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#F90"
+        android:layout_marginBottom="20dp"
+        android:background="#DDD"
+        android:padding="20dp"
         android:text=""
         android:textSize="16dp"
-        android:layout_marginBottom="20dp"
-        android:padding="20dp"
-        android:id="@+id/aantalKoffie"
         />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#F90"
+        android:padding="20dp"
+        android:text="Aantal Koffie: "
+        android:textSize="16dp"
+        />
+
+                <EditText
+                    android:id="@+id/aantalKoffie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:background="#DDD"
+                    android:padding="20dp"
+                    android:text=""
+                    android:textSize="16dp"
+                    />
+            </LinearLayout>
 </LinearLayout>

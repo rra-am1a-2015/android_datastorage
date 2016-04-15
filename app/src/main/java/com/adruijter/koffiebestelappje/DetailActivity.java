@@ -29,10 +29,10 @@ public class DetailActivity extends Activity {
         this.lastnameView = (TextView)findViewById(R.id.achternaam);
         this.amountOfCoffeeView = (TextView)findViewById(R.id.aantalKoffie);
 
-        this.firstnameView.setText("Voornaam: " + firstname);
-        this.infixView.setText("Tussenvoegsel: " + infix);
-        this.lastnameView.setText("Achternaam: " + lastname);
-        this.amountOfCoffeeView.setText("Aantal koffie: " + amountOfCoffee);
+        this.firstnameView.setText(firstname);
+        this.infixView.setText(infix);
+        this.lastnameView.setText(lastname);
+        this.amountOfCoffeeView.setText(amountOfCoffee);
 
     }
 
