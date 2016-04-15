@@ -25,6 +25,7 @@ public class LoadActivity extends Activity {
     TextView dataTxt;
     private static final int NUM_ROWS = 2;
     private static final int NUM_COLS = 9;
+    private String[] words;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,8 @@ public class LoadActivity extends Activity {
 
         try {
 
-            String[] sentences, words;
+            String[] sentences;
+
             fis = openFileInput("bestelling.txt");
             StringBuffer buffer = new StringBuffer();
 
@@ -102,7 +104,7 @@ public class LoadActivity extends Activity {
                     String text = words[col];
                     colView.setText(text);
                     colView.setPadding(0, 0, 0, 0);
-                    colView.setTextSize(11);
+                    colView.setTextSize(9);
                     colView.setBackgroundColor(Color.rgb(200, 200, 200));
 
 
@@ -119,13 +121,22 @@ public class LoadActivity extends Activity {
                         1.0f
                 ));
                 button.setText("Wijzig");
+                View.OnClickListener knop = new View.OnClickListener()
+                {
+                        public void onClick(View v)
+                        {
+                            Toast.makeText(getApplicationContext(), "Er is op de knop gedrukt", Toast.LENGTH_LONG).show();
+                            nextActivity(words);
+                        }
+                };
+                button.setOnClickListener(knop);
+
                 tableRow.addView(button);
             }
 
             Log.v("test123", sentences[1]);
 
             //this.dataTxt.setText(output);
-
 
 
             //Toast.makeText(getBaseContext(),"Hallo de knop werkt", Toast.LENGTH_LONG).show();
@@ -152,5 +163,14 @@ public class LoadActivity extends Activity {
         {
             e.getMessage();
         }
+
+
+    }
+
+    private void nextActivity(String[] words)
+    {
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("Voornaam", words[1]);
+        startActivity(intent);
     }
 }
