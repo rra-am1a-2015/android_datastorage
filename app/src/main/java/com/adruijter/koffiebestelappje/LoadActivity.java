@@ -170,7 +170,10 @@ public class LoadActivity extends Activity {
     private void nextActivity(String[] words)
     {
         Intent intent = new Intent(this, DetailActivity.class);
-        intent.putExtra("Voornaam", words[1]);
+        intent.putExtra("voornaam", words[0]);
+        intent.putExtra("tussenvoegsel", words[1]);
+        intent.putExtra("achternaam", words[2]);
+        intent.putExtra("aantalKoffie", words[3]);
         startActivity(intent);
     }
 }
